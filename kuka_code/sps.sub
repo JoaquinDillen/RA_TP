@@ -1,0 +1,46 @@
+&ACCESS RVO
+&COMMENT 
+DEF sps( )
+;FOLD DECLARATIONS
+  ;FOLD USER DECL
+  ; Please insert user defined declarations
+
+  ;ENDFOLD (USER DECL)
+;ENDFOLD (DECLARATIONS)
+;FOLD INI
+  ;FOLD USER INIT
+  ; Please insert user defined initialization commands
+  $TIMER[1] = 0
+  $TIMER_STOP[1] = FALSE
+
+  ;ENDFOLD (USER INIT)
+;ENDFOLD (INI)    $TIMER_STOP[1] = FALSE  $TIMER_STOP[1] = FALSE
+
+LOOP
+;FOLD USER PLC
+;Make your modifikations here
+
+;ENDFOLD (USER PLC)
+
+
+IF (($TIMER[1] >= 100) AND ($TIMER_STOP[1] == FALSE)) THEN
+   
+   ;ESCREVER POSICAO ACTUAL
+   DATA_WRITE.ACTUAL_X = $POS_ACT.X
+   DATA_WRITE.ACTUAL_Y = $POS_ACT.Y
+   
+   ;RESET DO TIMER 
+   $TIMER_STOP[1] = TRUE
+   $TIMER[1] = 0
+   $TIMER_STOP[1] = FALSE
+                                                 
+ENDIF
+
+ENDLOOP
+;FOLD ;%{H};
+END
+;ENDFOLD
+;FOLD USER SUBROUTINE
+;Integrate your user defined subroutines
+
+;ENDFOLD (USER SUBROUTINE)
