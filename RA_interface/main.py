@@ -1,6 +1,7 @@
 import enum
-import time
-import cv2
+import numpy
+#import time
+#import cv2
 from py_openshowvar import openshowvar
 
 
@@ -40,14 +41,26 @@ def main():
     # connect to kuka
     client = openshowvar("192.168.10.254", 7000)
 
+    # Get Fret coordinate
+    fret1 = get_Coordinates(1)
+    fret2 = get_Coordinates(2)
+    fret3 = get_Coordinates(3)
+    fret4 = get_Coordinates(4)
+    fret5 = get_Coordinates(5)
+    fret6 = get_Coordinates(6)
+
+
     # initialize music array
     music = [[GuitarFrets.fret1.value, GuitarStrings.E1.value, 1],
-             [GuitarFrets.fret1.value, GuitarStrings.A2.value, 2],
-             [GuitarFrets.fret1.value, GuitarStrings.D3.value, 3],
-             [GuitarFrets.fret1.value, GuitarStrings.G4.value, 4],
-             [GuitarFrets.fret1.value, GuitarStrings.B5.value, 5],
-             [GuitarFrets.fret1.value, GuitarStrings.E6.value, 6]]
-    
+             [GuitarFrets.fret2.value, GuitarStrings.E1.value, 2],
+             [GuitarFrets.fret3.value, GuitarStrings.E1.value, 3],
+             [GuitarFrets.fret4.value, GuitarStrings.E1.value, 4],
+             [GuitarFrets.fret5.value, GuitarStrings.E1.value, 5],
+             [GuitarFrets.fret6.value, GuitarStrings.E1.value, 6]]
+
+
+
+
     # write points to kuka
     for i, note in enumerate(music):
         # write guitar fret variable
@@ -58,6 +71,11 @@ def main():
     client.write('KUSTIC_START', 'TRUE')
 
     client.close()
+
+
+def get_Coordinates(x):
+    a = -0.5342*x^2+32.2*x-2.8703
+    return a
 
 
 # Press the green button in the gutter to run the script.
