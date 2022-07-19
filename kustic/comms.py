@@ -26,6 +26,8 @@ def main():
 
 
 def send_points_to_kuka(music):
+    print(music)
+
     # connect to kuka
     client = openshowvar("192.168.10.254", 7000)
 
@@ -35,6 +37,8 @@ def send_points_to_kuka(music):
         client.write(f'POINTS[{i}].POINT.X', f'{get_fret_coordinates(note[0])}', debug=False)
         # write guitar string variable
         client.write(f'POINTS[{i}].POINT.Y', f'{get_string_coordinates(note[1])}', debug=False)
+        # write tempo variable
+        client.write(f'POINTS[{i}].TEMPO', f'{note[2]}', debug=False)
 
     # give start order to kuka
     client.write('KUSTIC_START', 'TRUE', debug=False)

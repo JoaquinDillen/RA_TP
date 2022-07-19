@@ -37,7 +37,17 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QListView" name="listView"/>
+           <widget class="QListView" name="listView">
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+            <property name="modelColumn">
+             <number>0</number>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QTextBrowser" name="textBrowser"/>
@@ -73,11 +83,23 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
             <property name="styleSheet">
              <string notr="true"/>
             </property>
             <property name="text">
              <string>Play</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>16</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="shortcut">
+             <string>Return</string>
             </property>
            </widget>
           </item>
@@ -169,7 +191,7 @@
     <string>Copy a file</string>
    </property>
    <property name="shortcut">
-    <string/>
+    <string>Ctrl+C</string>
    </property>
   </action>
   <action name="actionPaste">
@@ -180,10 +202,12 @@
     <string>Paste a file</string>
    </property>
    <property name="shortcut">
-    <string/>
+    <string>Ctrl+V</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

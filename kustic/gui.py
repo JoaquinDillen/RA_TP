@@ -140,8 +140,8 @@ class Ui_MainWindow(object):
         self.actionPaste.setStatusTip(_translate("MainWindow", "Paste a file"))
 
     def button_play_clicked(self):
-        self.textBrowser.setText(self.listView.currentIndex().data())
         print(self.listView.currentIndex().data())
+        comms.send_points_to_kuka(musics.music_list[f'{self.listView.currentIndex().data()}'])
 
 
 if __name__ == "__main__":
