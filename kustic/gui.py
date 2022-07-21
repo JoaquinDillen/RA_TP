@@ -62,6 +62,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.button_play)
         self.button_play.clicked.connect(self.button_play_clicked)
 
+        self.button_stop = QtWidgets.QPushButton(self.tab_song_selection)
+        self.button_stop.setMinimumSize(QtCore.QSize(0, 50))
+        self.button_stop.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.button_stop.setStyleSheet("")
+        self.button_stop.setObjectName("button_stop")
+        self.horizontalLayout_2.addWidget(self.button_stop)
+        self.button_stop.clicked.connect(self.button_stop_clicked)
+
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem1)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
@@ -124,7 +132,8 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.button_play.setText(_translate("MainWindow", "Play"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_song_selection), _translate("MainWindow", "Song selection"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_song_selection),
+                                  _translate("MainWindow", "Song selection"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Creative"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
@@ -136,8 +145,10 @@ class Ui_MainWindow(object):
         self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
         self.actionCopy.setText(_translate("MainWindow", "Copy"))
         self.actionCopy.setStatusTip(_translate("MainWindow", "Copy a file"))
+        self.actionCopy.setShortcut(_translate("MainWindow", "Ctrl+C"))
         self.actionPaste.setText(_translate("MainWindow", "Paste"))
         self.actionPaste.setStatusTip(_translate("MainWindow", "Paste a file"))
+        self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+V"))
 
     def button_play_clicked(self):
         print(f'Chosen music: {self.listView.currentIndex().data()}')
@@ -146,9 +157,15 @@ class Ui_MainWindow(object):
         # send music to kuka
         comms.send_points_to_kuka(music)
 
+    def button_stop_clicked(self):
+        print(f'Stop music')
+        # send stop order to kuka
+        comms.send_stop_order_to_kuka()
+
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

@@ -18,4 +18,16 @@ def send_points_to_kuka(points):
     # give start order to kuka
     client.write('KUSTIC_START', 'TRUE', debug=False)
 
+    # close connection with kuka
+    client.close()
+
+
+def send_stop_order_to_kuka():
+    # connect to kuka
+    client = openshowvar("192.168.10.254", 7000)
+
+    # reset stop order
+    client.write('KUSTIC_STOP', 'TRUE', debug=False)
+
+    # close connection with kuka
     client.close()
