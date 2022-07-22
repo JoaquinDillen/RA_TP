@@ -2,13 +2,13 @@
 guitar_strings = {'E1': 1, 'B2': 2, 'G3': 3, 'D4': 4, 'A5': 5, 'E6': 6}
 
 # guitar fret dictionary
-guitar_frets = {'fret1': 1, 'fret2': 2, 'fret3': 3, 'fret4': 4, 'fret5': 5, 'fret6': 6,
+guitar_frets = {'fret0': 1, 'fret1': 1, 'fret2': 2, 'fret3': 3, 'fret4': 4, 'fret5': 5, 'fret6': 6,
                 'fret7': 7, 'fret8': 8, 'fret9': 9, 'fret10': 10, 'fret11': 11, 'fret12': 12,
                 'fret13': 13, 'fret14': 14, 'fret15': 15, 'fret16': 16, 'fret17': 17, 'fret18': 18}
 
-# notes duration dictionary
-notes = {'semibreve': 1, 'minim': 1/2, 'crotchet': 1/4,
-         'quaver': 1/8, 'semiquaver': 1/16, 'demisemiquaver': 6}
+# tempos duration dictionary
+tempos = {'semibreve': 1, 'minim': 1/2, 'crotchet': 1/4,
+         'quaver': 1/8, 'semiquaver': 1/16, 'demisemiquaver': 1/32}
 
 # time established per note
 beat = 1
@@ -16,12 +16,12 @@ beat = 1
 
 def build_points(music):
     points = []
+    print('Music: ', music_list[f'{music}'])
     for i, note in enumerate(music_list[f'{music}'], start=1):
         # get coordinates of note
         x, y = get_coordinates(note[0], note[1])
         points.append([x, y, note[2]])
 
-    print(f'Music: {music}')
     return points
 
 
@@ -70,138 +70,126 @@ def get_string_coordinates(string_number, x_coordinate):
     else:
         y_coordinate = 0.0022 * x_coordinate + 0.0122
 
-    return y_coordinate
+    return round(y_coordinate, 2)
 
 
 # Test – Test
 test = [[guitar_frets['fret1'], guitar_strings['E6'], 0]]
 
 # Survivor – Eye of the tiger
-survivor_eye_of_the_tiger = [[guitar_frets['fret3'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret3'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret1'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret3'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret3'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret1'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret3'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret3'], guitar_strings['A5'], 0],
-                             [guitar_frets['fret3'], guitar_strings['E6'], 0],
-                             [guitar_frets['fret4'], guitar_strings['E6'], 0]]
+survivor_eye_of_the_tiger = [[guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
+                             [guitar_frets['fret3'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                             [guitar_frets['fret1'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                             [guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
+                             [guitar_frets['fret3'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                             [guitar_frets['fret1'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                             [guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
+                             [guitar_frets['fret3'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                             [guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                             [guitar_frets['fret4'], guitar_strings['E6'], tempos['semibreve'] * beat]]
 
 # Queen – We Will Rock You
-queen_we_will_rock_you = [[guitar_frets['fret9'], guitar_strings['A5'], notes['minim'] * beat],
-                          [guitar_frets['fret8'], guitar_strings['A5'], notes['minim'] * beat],
-                          [guitar_frets['fret6'], guitar_strings['A5'], notes['minim'] * beat],
-                          [guitar_frets['fret4'], guitar_strings['A5'], notes['minim'] * beat],
-                          [guitar_frets['fret6'], guitar_strings['A5'], notes['crochet'] * beat],
-                          [guitar_frets['fret6'], guitar_strings['A5'], notes['minim'] * beat],
-                          [guitar_frets['fret6'], guitar_strings['A5'], notes['crochet'] * beat],
-                          [guitar_frets['fret6'], guitar_strings['A5'], notes['minim'] * beat]]
+queen_we_will_rock_you = [[guitar_frets['fret9'], guitar_strings['A5'], tempos['minim'] * beat],
+                          [guitar_frets['fret8'], guitar_strings['A5'], tempos['minim'] * beat],
+                          [guitar_frets['fret6'], guitar_strings['A5'], tempos['minim'] * beat],
+                          [guitar_frets['fret4'], guitar_strings['A5'], tempos['minim'] * beat],
+                          [guitar_frets['fret6'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                          [guitar_frets['fret6'], guitar_strings['A5'], tempos['minim'] * beat],
+                          [guitar_frets['fret6'], guitar_strings['A5'], tempos['crotchet'] * beat],
+                          [guitar_frets['fret6'], guitar_strings['A5'], tempos['minim'] * beat]]
 
 # Batman Theme
-batman_theme = [[guitar_frets['fret2'], guitar_strings['A5'], notes['demisequaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret0'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret0'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret0'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret0'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret0'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret0'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret1'], guitar_strings['A5'], notes['demisemiquaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['quaver'] * beat],
-                [guitar_frets['fret2'], guitar_strings['A5'], notes['quaver'] * beat]]
-
-# Survivor – Eye of the Tager
-MUSIC = [[guitar_frets['fret8'], guitar_strings['E6'], 'minim'*beat],
-         [guitar_frets['fret8'], guitar_strings['E6'], 'crochet'*beat],
-         [guitar_frets['fret6'], guitar_strings['E6'], 'crochet'*beat],
-         [guitar_frets['fret8'], guitar_strings['E6'], 'minim'*beat],
-         [guitar_frets['fret8'], guitar_strings['E6'], 'crochet'*beat],
-         [guitar_frets['fret6'], guitar_strings['E6'], 'crochet'*beat],
-         [guitar_frets['fret8'], guitar_strings['E6'], 'minim'*beat],
-         [guitar_frets['fret8'], guitar_strings['E6'], 'crochet'*beat],
-         [guitar_frets['fret3'], guitar_strings['E6'], 'crochet'*beat],
-         [guitar_frets['fret4'], guitar_strings['E6'], 'semibreve'*beat]]
+batman_theme = [[guitar_frets['fret2'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret0'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret0'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret0'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret0'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret0'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret0'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret1'], guitar_strings['A5'], tempos['demisemiquaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['quaver'] * beat],
+                [guitar_frets['fret2'], guitar_strings['A5'], tempos['quaver'] * beat]]
 
 # AC/DC – Dirty Deeds Done Dirt Cheap
-acdc_dirty_deeds_done_dirt_cheap = [[guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret3'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret5'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret10'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret3'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret5'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret10'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret3'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret5'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret10'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret3'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret5'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat],
-                                    [guitar_frets['fret10'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['semibreve'] * beat]]
+acdc_dirty_deeds_done_dirt_cheap = [[guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret5'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret10'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret5'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret10'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret5'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret10'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret5'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat],
+                                    [guitar_frets['fret10'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['semibreve'] * beat]]
+
 # George Thorogood – Bad to the Bone
-george_thorogood_bad_to_the_bone = [[guitar_frets['fret0'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret5'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret3'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['crochet'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['quaver'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['quaver'] * beat],
-                                    [guitar_frets['fret0'], guitar_strings['E6'], notes['quaver'] * beat]]
+george_thorogood_bad_to_the_bone = [[guitar_frets['fret0'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret5'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                    [guitar_frets['fret0'], guitar_strings['E6'], tempos['quaver'] * beat]]
 
 # The Troggs – Wild Thing
-the_troggs_wild_thing = [[guitar_frets['fret0'], guitar_strings['E6'], notes['quaver'] * beat],
-                         [guitar_frets['fret0'], guitar_strings['E6'], notes['minim'] * beat],
-                         [guitar_frets['fret5'], guitar_strings['E6'], notes['quaver'] * beat],
-                         [guitar_frets['fret5'], guitar_strings['E6'], notes['minim'] * beat],
-                         [guitar_frets['fret7'], guitar_strings['E6'], notes['quaver'] * beat],
-                         [guitar_frets['fret7'], guitar_strings['E6'], notes['minim'] * beat],
-                         [guitar_frets['fret5'], guitar_strings['E6'], notes['quaver'] * beat],
-                         [guitar_frets['fret5'], guitar_strings['E6'], notes['minim'] * beat]]
-
+the_troggs_wild_thing = [[guitar_frets['fret0'], guitar_strings['E6'], tempos['quaver'] * beat],
+                         [guitar_frets['fret0'], guitar_strings['E6'], tempos['minim'] * beat],
+                         [guitar_frets['fret5'], guitar_strings['E6'], tempos['quaver'] * beat],
+                         [guitar_frets['fret5'], guitar_strings['E6'], tempos['minim'] * beat],
+                         [guitar_frets['fret7'], guitar_strings['E6'], tempos['quaver'] * beat],
+                         [guitar_frets['fret7'], guitar_strings['E6'], tempos['minim'] * beat],
+                         [guitar_frets['fret5'], guitar_strings['E6'], tempos['quaver'] * beat],
+                         [guitar_frets['fret5'], guitar_strings['E6'], tempos['minim'] * beat]]
 
 # Jimi Hendrix – All Along the Watchtower
-jimi_hendrix_all_along_the_watchtower = [[guitar_frets['fret6'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret6'], guitar_strings['E6'], notes['crotchet'] * beat],
-                                         [guitar_frets['fret8'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret8'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret8'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret8'], guitar_strings['E6'], notes['crotchet'] * beat],
-                                         [guitar_frets['fret6'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret6'], guitar_strings['E6'], notes['crotchet'] * beat],
-                                         [guitar_frets['fret4'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret4'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret4'], guitar_strings['E6'], notes['quaver'] * beat],
-                                         [guitar_frets['fret4'], guitar_strings['E6'], notes['crotchet'] * beat]]
+jimi_hendrix_all_along_the_watchtower = [[guitar_frets['fret6'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret6'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                         [guitar_frets['fret8'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret8'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret8'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret8'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                         [guitar_frets['fret6'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret6'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                                         [guitar_frets['fret4'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret4'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret4'], guitar_strings['E6'], tempos['quaver'] * beat],
+                                         [guitar_frets['fret4'], guitar_strings['E6'], tempos['crotchet'] * beat]]
 
 music_list = {'test': test,
               'Survivor – Eye of the tiger': survivor_eye_of_the_tiger,
