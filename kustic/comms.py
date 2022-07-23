@@ -26,8 +26,21 @@ def send_stop_order_to_kuka():
     # connect to kuka
     client = openshowvar("192.168.10.254", 7000)
 
-    # reset stop order
+    # send stop order
     client.write('KUSTIC_STOP', 'TRUE', debug=False)
 
     # close connection with kuka
     client.close()
+
+
+def read_kuka_playing_status():
+    # connect to kuka
+    client = openshowvar("192.168.10.254", 7000)
+
+    # read status
+    status = client.read('KUSTIC_PLAYING_STATUS', debug=False)
+
+    # close connection with kuka
+    client.close()
+
+    return status

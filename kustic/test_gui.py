@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'kustic_gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -9,8 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import comms
-import musics
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -18,7 +17,6 @@ class Ui_MainWindow(object):
         MainWindow.resize(913, 591)
         MainWindow.setStyleSheet("border: none ;\n"
 "background-color: transparent;")
-        MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -396,46 +394,11 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        # List view
-        model = QtGui.QStandardItemModel()
-        self.listView.setModel(model)
-        self.listView.setStyleSheet("QListView::item{color:rgb(255, 255, 255);}")
-
-        for i in musics.music_list:
-            item = QtGui.QStandardItem(i)
-            model.appendRow(item)
-
-        # signal connections
-        self.btn_togle.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.pg_home))
-        self.btn_music.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.pg_music))
-        self.btn_goto.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.pg_music))
-        self.btn_music2.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.pg_music))
-        self.btn_go_to_setting.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.pg_setting))
-        self.btn_close.clicked.connect(lambda: MainWindow.close())
-        self.btn_minimize.clicked.connect(lambda: MainWindow.showMinimized())
-        self.btn_play.clicked.connect(self.btn_play_clicked)
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_info.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#f25c19;\">Kustic Player</span></p><p><span style=\" font-size:14pt;\">MEEC</span></p><p><span style=\" font-size:14pt;\">Advanced Robotics</span></p><p><span style=\" font-size:14pt;\">Group I</span></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#b590cc;\">v 0.0.1</span></p></body></html>"))
-
-    def btn_play_clicked(self):
-        try:
-            print(f'Chosen music: {self.listView.currentIndex().data()}')
-            # get selected music
-            music = musics.build_points(self.listView.currentIndex().data())
-            # send music to kuka
-            comms.send_points_to_kuka(music)
-        except:
-            print('No music selected')
-            pass
-
-    def button_stop_clicked(self):
-        print(f'Stop music')
-        # send stop order to kuka
-        comms.send_stop_order_to_kuka()
 
 
 if __name__ == "__main__":

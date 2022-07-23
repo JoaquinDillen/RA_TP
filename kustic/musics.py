@@ -2,7 +2,7 @@
 guitar_strings = {'E1': 1, 'B2': 2, 'G3': 3, 'D4': 4, 'A5': 5, 'E6': 6}
 
 # guitar fret dictionary
-guitar_frets = {'fret0': 1, 'fret1': 1, 'fret2': 2, 'fret3': 3, 'fret4': 4, 'fret5': 5, 'fret6': 6,
+guitar_frets = {'fret0': 0, 'fret1': 1, 'fret2': 2, 'fret3': 3, 'fret4': 4, 'fret5': 5, 'fret6': 6,
                 'fret7': 7, 'fret8': 8, 'fret9': 9, 'fret10': 10, 'fret11': 11, 'fret12': 12,
                 'fret13': 13, 'fret14': 14, 'fret15': 15, 'fret16': 16, 'fret17': 17, 'fret18': 18}
 
@@ -26,7 +26,10 @@ def build_points(music):
 
 
 def get_coordinates(fret_number, string_number):
-    x_coordinate = get_fret_coordinates(fret_number)
+    if fret_number == 0:
+        x_coordinate = -1
+    else:
+        x_coordinate = get_fret_coordinates(fret_number)
     y_coordinate = get_string_coordinates(string_number, x_coordinate)
     return x_coordinate, y_coordinate
 
