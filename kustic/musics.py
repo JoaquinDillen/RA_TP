@@ -180,6 +180,15 @@ the_troggs_wild_thing = [[guitar_frets['fret0'], guitar_strings['E6'], tempos['q
                          [guitar_frets['fret5'], guitar_strings['E6'], tempos['quaver'] * beat],
                          [guitar_frets['fret5'], guitar_strings['E6'], tempos['minim'] * beat]]
 
+# The White Stripes – Seven Nation Army
+the_white_stripes_seven_nation_army = [[guitar_frets['fret7'], guitar_strings['A5'], tempos['minim'] * beat],
+                                       [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret10'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret5'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret3'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret2'], guitar_strings['A5'], tempos['quaver'] * beat]]
+
 # Jimi Hendrix – All Along the Watchtower
 jimi_hendrix_all_along_the_watchtower = [[guitar_frets['fret6'], guitar_strings['E6'], tempos['quaver'] * beat],
                                          [guitar_frets['fret6'], guitar_strings['E6'], tempos['crotchet'] * beat],
@@ -201,5 +210,6 @@ music_list = {'test': test,
               'AC/DC – Dirty Deeds Done Dirt Cheap': acdc_dirty_deeds_done_dirt_cheap,
               'George Thorogood – Bad to the Bone': george_thorogood_bad_to_the_bone,
               'The Troggs – Wild Thing': the_troggs_wild_thing,
-              'Jimi Hendrix – All Along the Watchtower': jimi_hendrix_all_along_the_watchtower
+              'Jimi Hendrix – All Along the Watchtower': jimi_hendrix_all_along_the_watchtower,
+              'The White Stripes – Seven Nation Army': the_white_stripes_seven_nation_army,
               }

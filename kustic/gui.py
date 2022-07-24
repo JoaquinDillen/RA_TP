@@ -415,6 +415,7 @@ class Ui_MainWindow(object):
         self.btn_close.clicked.connect(lambda: MainWindow.close())
         self.btn_minimize.clicked.connect(lambda: MainWindow.showMinimized())
         self.btn_play.clicked.connect(self.btn_play_clicked)
+        self.btn_back.clicked.connect(self.btn_back_clicked)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -440,6 +441,8 @@ class Ui_MainWindow(object):
             # send music to kuka
             comms.send_stop_order_to_kuka()
 
+    def btn_back_clicked(self):
+        comms.send_emergency_to_kuka()
 
 if __name__ == "__main__":
     import sys

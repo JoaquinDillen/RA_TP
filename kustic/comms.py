@@ -44,3 +44,14 @@ def read_kuka_playing_status():
     client.close()
 
     return status
+
+
+def send_emergency_to_kuka():
+    # connect to kuka
+    client = openshowvar("192.168.10.254", 7000)
+
+    # read status
+    client.write('KUSTIC_EMERGENCY', 'FALSE', debug=True)
+
+    # close connection with kuka
+    client.close()
