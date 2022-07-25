@@ -186,8 +186,8 @@ the_white_stripes_seven_nation_army = [[guitar_frets['fret7'], guitar_strings['A
                                        [guitar_frets['fret10'], guitar_strings['A5'], tempos['quaver'] * beat],
                                        [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
                                        [guitar_frets['fret5'], guitar_strings['A5'], tempos['quaver'] * beat],
-                                       [guitar_frets['fret3'], guitar_strings['A5'], tempos['quaver'] * beat],
-                                       [guitar_frets['fret2'], guitar_strings['A5'], tempos['quaver'] * beat]]
+                                       [guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
+                                       [guitar_frets['fret2'], guitar_strings['A5'], tempos['minim'] * beat]]
 
 # Jimi Hendrix – All Along the Watchtower
 jimi_hendrix_all_along_the_watchtower = [[guitar_frets['fret6'], guitar_strings['E6'], tempos['quaver'] * beat],

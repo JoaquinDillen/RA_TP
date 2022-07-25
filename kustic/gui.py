@@ -232,7 +232,7 @@ class Ui_MainWindow(object):
                                     "}")
         self.btn_play.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("icons/music-note.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("icons/media-play.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_play.setIcon(icon4)
         self.btn_play.setIconSize(QtCore.QSize(24, 24))
         self.btn_play.setObjectName("btn_play")
@@ -434,15 +434,20 @@ class Ui_MainWindow(object):
                 music = musics.build_points(self.listView.currentIndex().data())
                 # send music to kuka
                 comms.send_points_to_kuka(music)
+                # set icon to stop
+                self.btn_music2.setIcon(QtGui.QIcon("icons/media-stop.png"))
             except:
                 print('No music selected')
                 pass
         else:
             # send music to kuka
             comms.send_stop_order_to_kuka()
+            # set icon to play
+            self.btn_music2.setIcon(QtGui.QIcon("icons/media-play.png"))
 
     def btn_back_clicked(self):
         comms.send_emergency_to_kuka()
+
 
 if __name__ == "__main__":
     import sys
