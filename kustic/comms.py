@@ -50,8 +50,19 @@ def send_emergency_to_kuka():
     # connect to kuka
     client = openshowvar("192.168.10.254", 7000)
 
-    # read status
-    client.write('KUSTIC_EMERGENCY', 'FALSE', debug=True)
+    # send emergency order
+    client.write('KUSTIC_EMERGENCY', 'FALSE', debug=False)
+
+    # close connection with kuka
+    client.close()
+
+
+def send_calibrate_order_to_kuka():
+    # connect to kuka
+    client = openshowvar("192.168.10.254", 7000)
+
+    # send calibrate order
+    client.write('KUSTIC_CALIBRATE', 'TRUE', debug=False)
 
     # close connection with kuka
     client.close()

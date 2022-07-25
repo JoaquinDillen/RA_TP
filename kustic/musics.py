@@ -40,16 +40,16 @@ def get_fret_coordinates(fret_number):
     # accumulative length of all frets
     accumulative_length = 0
 
-    # calculate coordinates of fret using the rule of 18 (17.82)
+    # calculate coordinates of fret using the rule of 18 (17.817)
     for i, fret in enumerate(guitar_frets, start=1):
-        fret_length = (scale_length - accumulative_length) / 17.82
+        fret_length = (scale_length - accumulative_length) / 17.817
         # add fret length to accumulative length
         accumulative_length += fret_length
 
         # reached selected fret
         if i == fret_number:
             # x = total length - half the length of the last fret - half the length of the first fret
-            x_coordinate = accumulative_length - (fret_length / 2) - (scale_length / 17.82 / 2)
+            x_coordinate = accumulative_length - (fret_length / 2) - (scale_length / 17.817 / 2)
             return round(x_coordinate, 2)
 
 

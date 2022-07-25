@@ -131,24 +131,24 @@ class Ui_MainWindow(object):
                                      "}")
         self.frame_btn.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("icons/kasqued.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("icons/kustic.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.frame_btn.setIcon(icon2)
         self.frame_btn.setIconSize(QtCore.QSize(900, 900))
         self.frame_btn.setFlat(True)
         self.frame_btn.setObjectName("frame_btn")
         self.gridLayout_4.addWidget(self.frame_btn, 0, 0, 1, 1)
         self.btn_music2 = QtWidgets.QPushButton(self.pg_home)
-        self.btn_music2.setGeometry(QtCore.QRect(390, 210, 141, 141))
+        self.btn_music2.setGeometry(QtCore.QRect(380, 190, 161, 161))
         self.btn_music2.setStyleSheet("QPushButton{\n"
-                                      "background-color: rgb(46, 32, 58);\n"
-                                      "border-radius: 60px;\n"
+                                      "background-color: rgb(242, 92, 25);\n"
+                                      "border-radius: 80px;\n"
                                       "border:none;\n"
                                       "}\n"
                                       "QPushButton:hover{\n"
-                                      "    background-color: rgb(57, 46, 69);\n"
+                                      "    background-color: rgb(255, 142, 73);\n"
                                       "}\n"
                                       "QPushButton:pressed{\n"
-                                      "    background-color: rgb(112, 0, 132);\n"
+                                      "    background-color: rgb(184, 40, 0);\n"
                                       "}")
         self.btn_music2.setText("")
         icon3 = QtGui.QIcon()
@@ -446,6 +446,9 @@ class Ui_MainWindow(object):
 
     def btn_back_clicked(self):
         comms.send_emergency_to_kuka()
+
+    def btn_next_clicked(self):
+        comms.send_calibrate_order_to_kuka()
 
 
 if __name__ == "__main__":
