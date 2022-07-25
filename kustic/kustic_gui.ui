@@ -538,7 +538,7 @@ QPushButton:pressed{
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>icons/music-note.png</normaloff>icons/music-note.png</iconset>
+             <normaloff>icons/media-play.png</normaloff>icons/media-play.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -715,6 +715,21 @@ border-radius:0px;
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <property name="spacing">
+           <number>0</number>
+          </property>
           <item row="2" column="0">
            <widget class="QPushButton" name="btn_goto">
             <property name="minimumSize">

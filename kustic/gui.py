@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'kustic_gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -232,7 +232,7 @@ class Ui_MainWindow(object):
                                     "}")
         self.btn_play.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("icons/media-play.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("icons/music-note.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_play.setIcon(icon4)
         self.btn_play.setIconSize(QtCore.QSize(24, 24))
         self.btn_play.setObjectName("btn_play")
@@ -311,6 +311,8 @@ class Ui_MainWindow(object):
         self.frame_left.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_left.setObjectName("frame_left")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.frame_left)
+        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_5.setSpacing(0)
         self.gridLayout_5.setObjectName("gridLayout_5")
         self.btn_goto = QtWidgets.QPushButton(self.frame_left)
         self.btn_goto.setMinimumSize(QtCore.QSize(0, 100))
@@ -435,7 +437,7 @@ class Ui_MainWindow(object):
                 # send music to kuka
                 comms.send_points_to_kuka(music)
                 # set icon to stop
-                self.btn_play.setIcon(QtGui.QIcon("icons/media-stop.png"))
+                #self.btn_play.setIcon(QtGui.QIcon("icons/media-stop.png"))
             except:
                 print('No music selected')
                 pass
@@ -443,7 +445,7 @@ class Ui_MainWindow(object):
             # send music to kuka
             comms.send_stop_order_to_kuka()
             # set icon to play
-            self.btn_play.setIcon(QtGui.QIcon("icons/media-play.png"))
+            #self.btn_play.setIcon(QtGui.QIcon("icons/media-play.png"))
 
     def btn_back_clicked(self):
         comms.send_emergency_to_kuka()
