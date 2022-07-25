@@ -435,7 +435,7 @@ class Ui_MainWindow(object):
                 # send music to kuka
                 comms.send_points_to_kuka(music)
                 # set icon to stop
-                self.btn_music2.setIcon(QtGui.QIcon("icons/media-stop.png"))
+                self.btn_play.setIcon(QtGui.QIcon("icons/media-stop.png"))
             except:
                 print('No music selected')
                 pass
@@ -443,7 +443,7 @@ class Ui_MainWindow(object):
             # send music to kuka
             comms.send_stop_order_to_kuka()
             # set icon to play
-            self.btn_music2.setIcon(QtGui.QIcon("icons/media-play.png"))
+            self.btn_play.setIcon(QtGui.QIcon("icons/media-play.png"))
 
     def btn_back_clicked(self):
         comms.send_emergency_to_kuka()

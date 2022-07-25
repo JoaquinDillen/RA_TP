@@ -77,7 +77,7 @@ def get_string_coordinates(string_number, x_coordinate):
 
 
 # Test – Test
-test = [[guitar_frets['fret1'], guitar_strings['E6'], 0]]
+test = [[guitar_frets['fret1'], guitar_strings['E6'], beat]]
 
 # Survivor – Eye of the tiger
 survivor_eye_of_the_tiger = [[guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
@@ -180,15 +180,6 @@ the_troggs_wild_thing = [[guitar_frets['fret0'], guitar_strings['E6'], tempos['q
                          [guitar_frets['fret5'], guitar_strings['E6'], tempos['quaver'] * beat],
                          [guitar_frets['fret5'], guitar_strings['E6'], tempos['minim'] * beat]]
 
-# The White Stripes – Seven Nation Army
-the_white_stripes_seven_nation_army = [[guitar_frets['fret7'], guitar_strings['A5'], tempos['minim'] * beat],
-                                       [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
-                                       [guitar_frets['fret10'], guitar_strings['A5'], tempos['quaver'] * beat],
-                                       [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
-                                       [guitar_frets['fret5'], guitar_strings['A5'], tempos['quaver'] * beat],
-                                       [guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
-                                       [guitar_frets['fret2'], guitar_strings['A5'], tempos['minim'] * beat]]
-
 # Jimi Hendrix – All Along the Watchtower
 jimi_hendrix_all_along_the_watchtower = [[guitar_frets['fret6'], guitar_strings['E6'], tempos['quaver'] * beat],
                                          [guitar_frets['fret6'], guitar_strings['E6'], tempos['crotchet'] * beat],
@@ -203,6 +194,61 @@ jimi_hendrix_all_along_the_watchtower = [[guitar_frets['fret6'], guitar_strings[
                                          [guitar_frets['fret4'], guitar_strings['E6'], tempos['quaver'] * beat],
                                          [guitar_frets['fret4'], guitar_strings['E6'], tempos['crotchet'] * beat]]
 
+# The White Stripes – Seven Nation Army
+the_white_stripes_seven_nation_army = [[guitar_frets['fret7'], guitar_strings['A5'], tempos['minim'] * beat],
+                                       [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret10'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret7'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret5'], guitar_strings['A5'], tempos['quaver'] * beat],
+                                       [guitar_frets['fret3'], guitar_strings['A5'], tempos['minim'] * beat],
+                                       [guitar_frets['fret2'], guitar_strings['A5'], tempos['minim'] * beat]]
+
+# Mission Impossible – Theme
+mission_impossible_theme = [[guitar_frets['fret3'], guitar_strings['E6'], tempos['crotchet'] * beat],
+                            [guitar_frets['fret3'], guitar_strings['E6'], tempos['quaver'] * beat],
+                            [guitar_frets['fret1'], guitar_strings['A5'], tempos['semiquaver'] * beat],
+                            [guitar_frets['fret3'], guitar_strings['A5'], tempos['semiquaver'] * beat],
+                            [guitar_frets['fret3'], guitar_strings['E6'], tempos['semiquaver'] * beat],
+                            [guitar_frets['fret3'], guitar_strings['E6'], tempos['quaver'] * beat],
+                            [guitar_frets['fret1'], guitar_strings['E6'], tempos['quaver'] * beat],
+                            [guitar_frets['fret2'], guitar_strings['E6'], tempos['quaver'] * beat]]
+
+# Franz Ferdinand – Take me out
+franz_ferdinand_take_me_out = [[guitar_frets['fret8'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                               [guitar_frets['fret9'], guitar_strings['G3'], tempos['demisemiquaver'] * beat],
+                               [guitar_frets['fret9'], guitar_strings['G3'], tempos['demisemiquaver'] * beat],
+                               [guitar_frets['fret7'], guitar_strings['G3'], tempos['demisemiquaver'] * beat],
+                               [guitar_frets['fret9'], guitar_strings['D4'], tempos['demisemiquaver'] * beat],
+                               [guitar_frets['fret7'], guitar_strings['G3'], tempos['demisemiquaver'] * beat],
+                               [guitar_frets['fret9'], guitar_strings['G3'], tempos['demisemiquaver'] * beat]]
+
+# Rolling Stones – Paint it black
+rolling_stones_paint_it_black = [[guitar_frets['fret5'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret7'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret8'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret10'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret8'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret7'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret5'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret5'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret4'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret5'], guitar_strings['B2'], tempos['demisemiquaver'] * beat],
+                                 [guitar_frets['fret7'], guitar_strings['B2'], tempos['demisemiquaver'] * beat]]
+
+# Deep Purple - Smoke on the water
+deep_purple_smoke_on_the_water = [[guitar_frets['fret0'], guitar_strings['D4'], tempos['crotchet'] * beat],
+                                  [guitar_frets['fret3'], guitar_strings['D4'], tempos['crotchet'] * beat],
+                                  [guitar_frets['fret5'], guitar_strings['D4'], tempos['semibreve'] * beat],
+                                  [guitar_frets['fret0'], guitar_strings['D4'], tempos['crotchet'] * beat],
+                                  [guitar_frets['fret3'], guitar_strings['D4'], tempos['crotchet'] * beat],
+                                  [guitar_frets['fret6'], guitar_strings['D4'], tempos['quaver'] * beat],
+                                  [guitar_frets['fret5'], guitar_strings['D4'], tempos['semibreve'] * beat],
+                                  [guitar_frets['fret0'], guitar_strings['D4'], tempos['crotchet'] * beat],
+                                  [guitar_frets['fret3'], guitar_strings['D4'], tempos['crotchet'] * beat],
+                                  [guitar_frets['fret5'], guitar_strings['D4'], tempos['minim'] * beat],
+                                  [guitar_frets['fret3'], guitar_strings['D4'], tempos['minim'] * beat],
+                                  [guitar_frets['fret0'], guitar_strings['D4'], tempos['semibreve'] * beat]]
+
 music_list = {'test': test,
               'Survivor – Eye of the tiger': survivor_eye_of_the_tiger,
               'Queen – We Will Rock You': queen_we_will_rock_you,
@@ -212,4 +258,8 @@ music_list = {'test': test,
               'The Troggs – Wild Thing': the_troggs_wild_thing,
               'Jimi Hendrix – All Along the Watchtower': jimi_hendrix_all_along_the_watchtower,
               'The White Stripes – Seven Nation Army': the_white_stripes_seven_nation_army,
+              'Mission Impossible – Theme': mission_impossible_theme,
+              'Franz Ferdinand – Take me out': franz_ferdinand_take_me_out,
+              'Rolling Stones – Paint it black': rolling_stones_paint_it_black,
+              'Deep Purple - Smoke on the water': deep_purple_smoke_on_the_water
               }
