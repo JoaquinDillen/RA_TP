@@ -419,6 +419,7 @@ class Ui_MainWindow(object):
         self.btn_minimize.clicked.connect(lambda: MainWindow.showMinimized())
         self.btn_play.clicked.connect(self.btn_play_clicked)
         self.btn_back.clicked.connect(self.btn_back_clicked)
+        self.btn_next.clicked.connect(self.btn_next_clicked)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
