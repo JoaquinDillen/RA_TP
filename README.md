@@ -1,4 +1,5 @@
 # Advance Robotics Practical Work
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <p align="center">
     <img alt="kustic Logo" src="https://github.com/JoaquinDillen/RA_TP/blob/main/Tooltip%20design/Ilustrations%20and%20Renders/Kustic.png?raw=true" width="500" />
@@ -14,29 +15,32 @@ Professor of Advanced Robotics ([João Vilaça](https://www.linkedin.com/in/jo%C
 
 Specific Objectives:
 
-  Development of a Robotics application using industrial Kuka robotics arm, for the project the goal defined is to create an aplication that enables the robot to perform music in a guitar, the objective is to be finger style. 
+  Development of a Robotics application using industrial Kuka robotics arm, for the project the goal defined is to create an aplication that enables the robot to perform music in a guitar, the objective is to reproduce monotone melodies similar to guitar finger style. 
   
   The solution goes througout the development of the tool for the solution and then implementation which engloves a user interface, and the algorithm to control the 
 robot, the idea is to develop a system who reads tablatures and can reproduce the music. 
 
   Advanced Robotics Requirements:
   
-    (1) ------------.
+    (1) Wireless Communication between industrial robotic arm and computer.
   
-    (2) ------------.
+    (2) Development of software in both the computer and the robotic arm to performe the task.
     
-    (3) ------------.
+    (3) User interface for interaction between the robot and the guitar.
   
-Programming language: -------.
+Programming language: Python.
     The present project will contain diverse documentation regarding the goals of the implementation:
  
-    (1) ------------.
+    (1) Article descriving the proyect and each of the components (In Portuguese Lenguage).
   
-    (2) ------------.
+    (2) All the developed Software associated with the project.
   
-    (3) ------------.
+    (3) All 3D designs develop for the solution presented.
   
 
 
 Delivery:
+- All software associated with the proyect
+- Fusion 360 designs and STL files of the Tooltip
+- Ilustrations and Documentation
 
