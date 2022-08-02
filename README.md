@@ -9,7 +9,7 @@
 
 This Practical Work was made for the MsC of Electronics Enginheering in Polytechnic Institute of Cávado and Ave for the Advanced Robotic subject.
 
-April 2022 Barcelos, Portugal
+July 2022 Barcelos, Portugal
 
 Professor of Advanced Robotics ([João Vilaça](https://www.linkedin.com/in/jo%C3%A3o-l-vila%C3%A7a-38854320/))
 
