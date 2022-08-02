@@ -30,7 +30,7 @@ robot, the idea is to develop a system who reads tablatures and can reproduce th
   
 Programming language: Python and KRL.
     
-    The present project will contain diverse documentation regarding the goals of the implementation:
+   The present project will contain diverse documentation regarding the goals of the implementation:
  
     (1) Article descriving the proyect and each of the components (In Portuguese Lenguage).
   
