@@ -32,7 +32,7 @@ Programming language: Python and KRL.
     
    The present project will contain diverse documentation regarding the goals of the implementation:
  
-    (1) Article descriving the proyect and each of the components (In Portuguese Lenguage).
+    (1) Report descriving the proyect and each of the components (In Portuguese Lenguage).
   
     (2) All the developed Software associated with the project.
   
