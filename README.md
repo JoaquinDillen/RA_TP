@@ -10,7 +10,7 @@ This Practical Work was made for the MsC of Electronics Enginheering in Polytech
 
 April 2022 Barcelos, Portugal
 
-Professor of Advanced Robotics ([João Vilaça]([myLib/README.md]((https://www.linkedin.com/in/jo%C3%A3o-l-vila%C3%A7a-38854320/))))
+Professor of Advanced Robotics ([João Vilaça](https://www.linkedin.com/in/jo%C3%A3o-l-vila%C3%A7a-38854320/))
 
 Specific Objectives:
 
